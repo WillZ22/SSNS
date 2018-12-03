@@ -27,7 +27,7 @@ public class StatusChangeImpl implements StatusChange{
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date date = new Date();
 		String changeTime = sdf.format(date);
-		statusChangeService.statueChange("start", sensorId, changeTime);
+		statusChangeService.statueChange("working", sensorId, changeTime);
 		return sensorId;
 	}
 
@@ -60,7 +60,7 @@ public class StatusChangeImpl implements StatusChange{
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date date = new Date();
 		String changeTime = sdf.format(date);
-		statusChangeService.statueChange("resume", sensorId, changeTime);
+		statusChangeService.statueChange("working", sensorId, changeTime);
 		return sensorId;
 	}
 	

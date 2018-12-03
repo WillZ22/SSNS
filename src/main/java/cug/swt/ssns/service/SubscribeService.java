@@ -39,8 +39,8 @@ public class SubscribeService {
 					consumer.setConsumerPort(consumerPort);
 					consumer.getSubscribedSensor().add(sensor);
 					sensor.getConsumers().add(consumer);
-					sensorRepository.save(sensor);
 					consumerRepository.save(consumer);
+					sensorRepository.save(sensor);
 				} else {
 					consumer.getSubscribedSensor().add(sensor);
 					sensor.getConsumers().add(consumer);

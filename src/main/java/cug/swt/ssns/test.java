@@ -25,11 +25,11 @@ import cug.swt.ssns.utils.Notify;
 @SpringBootTest
 public class test {
 
-//	@Autowired
-//	GetSensorInfoService getSensorInfoService;
+	@Autowired
+	GetSensorInfoService getSensorInfoService;
 //	
-//	@Autowired
-//	RegisterService registerService;
+	@Autowired
+	RegisterService registerService;
 	
 	@Autowired
 	StatusChangeService statusChangeService;
@@ -44,5 +44,6 @@ public class test {
 	@Test
 	public void test() throws Exception {
 		
+		System.out.println(getSensorInfoService.getAllSensor());
 	}
 }

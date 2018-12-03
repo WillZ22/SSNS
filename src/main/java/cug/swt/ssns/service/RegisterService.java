@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import cug.swt.ssns.exception.SensorAlreadyExistException;
 import cug.swt.ssns.exception.SensorNotExistException;
+import cug.swt.ssns.model.Consumer;
 import cug.swt.ssns.model.Sensor;
 import cug.swt.ssns.repository.SensorRepository;
 
@@ -46,6 +47,9 @@ public class RegisterService {
 			throw new SensorNotExistException(sensorid + "  is not exist");
 		} else {
 			Sensor sensor = sensorRepository.getSensorBysensorid(sensorid);
+			for(Consumer con:sensor.getConsumers()) {
+				con.getSubscribedSensor().remove(sensor);
+			}
 			sensorRepository.delete(sensor);
 			return sensorid;
 		}

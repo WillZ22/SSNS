@@ -20,7 +20,7 @@ public class StatusChangeService {
 	@Autowired
 	Notify notify;
 	
-	public String statueChange(String status, String sensorID, String changeTime) throws Exception {
+	public String statueChange(String status, String sensorID, String changeTime) throws SensorNotExistException{
 		Sensor sensor = null;
 		sensor = sensorRepository.getSensorBysensorid(sensorID);
 		if (sensor != null) {
