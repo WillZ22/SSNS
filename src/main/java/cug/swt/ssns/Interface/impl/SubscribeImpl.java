@@ -13,7 +13,7 @@ import cug.swt.ssns.exception.SensorNotExistException;
 import cug.swt.ssns.model.Consumer;
 import cug.swt.ssns.service.SubscribeService;
 
-@WebService
+@WebService(name = "subscribeservice",endpointInterface = "cug.swt.ssns.Interface.Subscribe")
 public class SubscribeImpl implements Subscribe{
 
 	@Autowired

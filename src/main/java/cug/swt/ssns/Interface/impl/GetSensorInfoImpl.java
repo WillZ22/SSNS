@@ -13,7 +13,7 @@ import cug.swt.ssns.model.Sensor;
 import cug.swt.ssns.repository.SensorRepository;
 import cug.swt.ssns.service.GetSensorInfoService;
 
-@WebService
+@WebService(name = "getsensorinfo",endpointInterface = "cug.swt.ssns.Interface.GetSenorInfo")
 public class GetSensorInfoImpl implements GetSenorInfo{
 
 	@Autowired

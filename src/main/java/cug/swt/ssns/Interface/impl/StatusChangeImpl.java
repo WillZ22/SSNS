@@ -13,7 +13,7 @@ import cug.swt.ssns.exception.SensorNotExistException;
 import cug.swt.ssns.service.StatusChangeService;
 import cug.swt.ssns.utils.Notify;
 
-@WebService
+@WebService(name = "statusChange",endpointInterface = "cug.swt.ssns.Interface.StatusChange")
 public class StatusChangeImpl implements StatusChange{
 
 	@Autowired

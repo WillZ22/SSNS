@@ -1,7 +1,11 @@
 package cug.swt.ssns.Interface;
 
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+
 import cug.swt.ssns.exception.SensorNotExistException;
 
+@WebService
 public interface StatusChange {
 	
 	/**
@@ -11,6 +15,7 @@ public interface StatusChange {
 	 * @throws SensorNotExistException 
 	 * @throws Exception 
 	 */
+	@WebMethod
 	String start(String sensorId) throws SensorNotExistException, Exception;
 	
 	/**
@@ -20,6 +25,7 @@ public interface StatusChange {
 	 * @throws SensorNotExistException 
 	 * @throws Exception 
 	 */
+	@WebMethod
 	String stop(String sensorId) throws SensorNotExistException, Exception;
 	
 	/**
@@ -29,6 +35,7 @@ public interface StatusChange {
 	 * @throws SensorNotExistException 
 	 * @throws Exception 
 	 */
+	@WebMethod
 	String pause(String sensorId) throws SensorNotExistException, Exception;
 
 	/**
@@ -38,5 +45,6 @@ public interface StatusChange {
 	 * @throws SensorNotExistException 
 	 * @throws Exception 
 	 */
+	@WebMethod
 	String resume(String sensorId) throws SensorNotExistException, Exception;
 }
