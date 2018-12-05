@@ -5,11 +5,12 @@ import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
+import cug.swt.ssns.exception.ConsumerNotExistException;
 import cug.swt.ssns.exception.SensorNotExistException;
 import cug.swt.ssns.model.Sensor;
 
 @WebService
-public interface GetSenorInfo {
+public interface GetInfo {
 
 	/**
 	 * 获取注册的传感器列表
@@ -26,5 +27,8 @@ public interface GetSenorInfo {
 	 */
 	@WebMethod
 	Sensor getSensorInfo(String sensorID) throws SensorNotExistException;
+	
+	@WebMethod
+	List<Sensor> getSubscribedSensor(String consumerPort) throws ConsumerNotExistException;
 	
 }

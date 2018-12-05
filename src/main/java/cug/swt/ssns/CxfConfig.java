@@ -6,21 +6,18 @@ import org.apache.cxf.Bus;
 import org.apache.cxf.bus.spring.SpringBus; 
 import org.apache.cxf.jaxws.EndpointImpl; 
 import org.apache.cxf.transport.servlet.CXFServlet;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.ServletRegistrationBean; 
 import org.springframework.context.annotation.Bean; 
 import org.springframework.context.annotation.Configuration;
 
-import cug.swt.ssns.Interface.GetSenorInfo;
+import cug.swt.ssns.Interface.GetInfo;
 import cug.swt.ssns.Interface.Register;
 import cug.swt.ssns.Interface.StatusChange;
 import cug.swt.ssns.Interface.Subscribe;
-import cug.swt.ssns.Interface.impl.GetSensorInfoImpl;
+import cug.swt.ssns.Interface.impl.GetInfoImpl;
 import cug.swt.ssns.Interface.impl.RegisterImpl;
 import cug.swt.ssns.Interface.impl.StatusChangeImpl;
 import cug.swt.ssns.Interface.impl.SubscribeImpl; 
-
-
 
 @Configuration
 public class CxfConfig {
@@ -51,8 +48,8 @@ public class CxfConfig {
 	}
 	
 	@Bean
-	public GetSenorInfo getSenorInfo() {
-		return new GetSensorInfoImpl();
+	public GetInfo getInfo() {
+		return new GetInfoImpl();
 	}
 	
 	@Bean 
@@ -75,8 +72,8 @@ public class CxfConfig {
 	}
 	@Bean 
 	public Endpoint endpoint4(){ 
-		EndpointImpl endpoint = new EndpointImpl(springBus(), getSenorInfo());
-		endpoint.publish("/getsensorinfo"); 
+		EndpointImpl endpoint = new EndpointImpl(springBus(), getInfo());
+		endpoint.publish("/getinfo"); 
 		return endpoint; 
 	}
 

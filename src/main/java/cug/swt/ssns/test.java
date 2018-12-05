@@ -44,6 +44,6 @@ public class test {
 	@Test
 	public void test() throws Exception {
 		
-		System.out.println(getSensorInfoService.getAllSensor());
+		System.out.println(getSensorInfoService.getSubscribedSensors("s"));
 	}
 }
