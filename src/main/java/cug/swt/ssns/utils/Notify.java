@@ -17,15 +17,9 @@ import cug.swt.ssns.model.Sensor;
 @Component
 public class Notify {
 
-	public static Boolean notify(Sensor sensor, String consumerPort) {
+	public static Boolean notify(String xmlStr, String consumerPort) {
 		Boolean success = false;
-		Document doc = DocumentHelper.createDocument();
-		Element root = doc.addElement("sensor");
-		root.addElement("id").setText(sensor.getSensorid());
-		root.addElement("status").setText(sensor.getStatus() != null ? sensor.getStatus() : "");
-		root.addElement("changeTime").setText(sensor.getChangeTime() != null ? sensor.getStatus() : "");
-		root.addElement("sosAdress").setText(sensor.getSosAdress());
-		String xmlStr = doc.asXML();
+		
 		
 		try {
 			URL url = new URL(consumerPort);
@@ -54,6 +48,7 @@ public class Notify {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		return success;
 	}
 }

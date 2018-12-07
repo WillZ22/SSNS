@@ -16,7 +16,7 @@ public interface Register {
 	 * @throws Exception 
 	 */
 	@WebMethod
-	String register(String sensorID, String sosAdress) throws Exception;
+	String register(String sensorID, String sosAdress, String frequence) throws Exception;
 	
 	/**
 	 * 注销传感器

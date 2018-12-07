@@ -46,10 +46,22 @@ public class Sensor {
 	private String status;
 	
 	/**
-	 * 改变时间
+	 * 传感器频率
+	 */
+	@Column(nullable=false)
+	private String frequence;
+	
+	/**
+	 * 状态改变时间
 	 */
 	@Column(nullable=true)
-	private String changeTime;
+	private String statusChangeTime;
+	
+	/**
+	 * 观测频率改变时间
+	 */
+	@Column(nullable=true)
+	private String frequenceChangeTime;
 	
 	/**
 	 * 订阅的用户
@@ -92,14 +104,6 @@ public class Sensor {
 	}
 	
 
-	public String getChangeTime() {
-		return changeTime;
-	}
-
-	public void setChangeTime(String changeTime) {
-		this.changeTime = changeTime;
-	}
-
 	public String getSensorid() {
 		return sensorid;
 	}
@@ -108,9 +112,38 @@ public class Sensor {
 		this.sensorid = sensorid;
 	}
 
+	public String getStatusChangeTime() {
+		return statusChangeTime;
+	}
+
+	public void setStatusChangeTime(String statusChangeTime) {
+		this.statusChangeTime = statusChangeTime;
+	}
+
+	public String getFrequenceChangeTime() {
+		return frequenceChangeTime;
+	}
+
+	public void setFrequenceChangeTime(String frequenceChangeTime) {
+		this.frequenceChangeTime = frequenceChangeTime;
+	}
+
+	public String getFrequence() {
+		return frequence;
+	}
+
+	public void setFrequence(String frequence) {
+		this.frequence = frequence;
+	}
+
 	@Override
 	public String toString() {
 		return "Sensor [sid=" + sid + ", sensorid=" + sensorid + ", sosAdress=" + sosAdress + ", status=" + status
-				+ ", changeTime=" + changeTime + ", consumers=" + consumers + "]";
+				+ ", frequence=" + frequence + ", statusChangeTime=" + statusChangeTime + ", frequenceChangeTime="
+				+ frequenceChangeTime + ", consumers=" + consumers + "]";
 	}
+
+	
+
+	
 }

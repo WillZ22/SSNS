@@ -15,6 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import cug.swt.ssns.model.Consumer;
 import cug.swt.ssns.model.Sensor;
 import cug.swt.ssns.repository.ConsumerRepository;
+import cug.swt.ssns.service.FrequenceChangeService;
 import cug.swt.ssns.service.GetSensorInfoService;
 import cug.swt.ssns.service.RegisterService;
 import cug.swt.ssns.service.StatusChangeService;
@@ -40,10 +41,12 @@ public class test {
 	@Autowired
 	Notify notify;
 	
+	@Autowired
+	FrequenceChangeService frequenceChangeService;
+	
 	
 	@Test
 	public void test() throws Exception {
 		
-		System.out.println(getSensorInfoService.getSubscribedSensors("s"));
 	}
 }

@@ -14,9 +14,9 @@ public class RegisterImpl implements Register{
 	RegisterService registerService;
 
 	@Override
-	public String register(String sensorId, String sosAdress) throws Exception {
+	public String register(String sensorId, String sosAdress, String frequence) throws Exception {
 		// TODO Auto-generated method stub
-		return registerService.register(sensorId, sosAdress);
+		return registerService.register(sensorId, sosAdress, frequence);
 	}
 
 	@Override

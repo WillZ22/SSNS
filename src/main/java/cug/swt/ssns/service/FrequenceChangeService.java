@@ -10,25 +10,28 @@ import org.springframework.transaction.annotation.Transactional;
 import cug.swt.ssns.exception.SensorNotExistException;
 import cug.swt.ssns.model.Consumer;
 import cug.swt.ssns.model.Sensor;
+import cug.swt.ssns.repository.ConsumerRepository;
 import cug.swt.ssns.repository.SensorRepository;
 import cug.swt.ssns.utils.Notify;
 
 @Service
 @Transactional
-public class StatusChangeService {
+public class FrequenceChangeService {
 
 	@Autowired
 	SensorRepository sensorRepository;
 	
-	@Autowired
+	@Autowired 
 	Notify notify;
 	
-	public String statueChange(String status, String sensorID, String changeTime) throws SensorNotExistException{
+	public String changeFrequence(String sensorid, String frequence,String changeTime) throws SensorNotExistException {
+		
 		Sensor sensor = null;
-		sensor = sensorRepository.getSensorBysensorid(sensorID);
+		sensor = sensorRepository.getSensorBysensorid(sensorid);
+
 		if (sensor != null) {
-			sensor.setStatusChangeTime(changeTime);
-			sensor.setStatus(status);
+			sensor.setFrequenceChangeTime(changeTime);
+			sensor.setFrequence(frequence);
 			sensorRepository.save(sensor);
 			sensor.getConsumers();
 			
@@ -36,18 +39,19 @@ public class StatusChangeService {
 			Document doc = DocumentHelper.createDocument();
 			Element root = doc.addElement("sensor");
 			root.addElement("id").setText(sensor.getSensorid());
-			root.addElement("status").setText(sensor.getStatus() != null ? sensor.getStatus() : "");
-			root.addElement("changeTime").setText(sensor.getStatusChangeTime() != null ? sensor.getStatus() : "");
+			root.addElement("frequence").setText(sensor.getFrequence());
+			root.addElement("changeTime").setText(sensor.getFrequenceChangeTime() != null ? sensor.getFrequenceChangeTime() : "");
 			String xmlStr = doc.asXML();
 			
 			
 			for(Consumer consumer:sensor.getConsumers()) {
 				String consumerPort = consumer.getConsumerPort();
-				notify.notify(xmlStr, consumerPort);
+				Notify.notify(xmlStr, consumerPort);
 			}
-			return sensorID;
+			return sensorid;
 		} else {
-			throw new SensorNotExistException(sensorID + " is not existed");
+			throw new SensorNotExistException(sensorid + " is not existed");
 		}
+		
 	}
 }

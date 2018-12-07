@@ -10,10 +10,12 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean; 
 import org.springframework.context.annotation.Configuration;
 
+import cug.swt.ssns.Interface.FrequenceChange;
 import cug.swt.ssns.Interface.GetInfo;
 import cug.swt.ssns.Interface.Register;
 import cug.swt.ssns.Interface.StatusChange;
 import cug.swt.ssns.Interface.Subscribe;
+import cug.swt.ssns.Interface.impl.FrequenceChangeImpl;
 import cug.swt.ssns.Interface.impl.GetInfoImpl;
 import cug.swt.ssns.Interface.impl.RegisterImpl;
 import cug.swt.ssns.Interface.impl.StatusChangeImpl;
@@ -52,6 +54,11 @@ public class CxfConfig {
 		return new GetInfoImpl();
 	}
 	
+	@Bean
+	public FrequenceChange frequenceChange() {
+		return new FrequenceChangeImpl();
+	}
+	
 	@Bean 
 	public Endpoint endpoint1(){ 
 		EndpointImpl endpoint = new EndpointImpl(springBus(), register());
@@ -74,6 +81,13 @@ public class CxfConfig {
 	public Endpoint endpoint4(){ 
 		EndpointImpl endpoint = new EndpointImpl(springBus(), getInfo());
 		endpoint.publish("/getinfo"); 
+		return endpoint; 
+	}
+	
+	@Bean 
+	public Endpoint endpoint5(){ 
+		EndpointImpl endpoint = new EndpointImpl(springBus(), frequenceChange());
+		endpoint.publish("/frequencechange"); 
 		return endpoint; 
 	}
 

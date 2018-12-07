@@ -19,7 +19,7 @@ public class SsnsApplicationTests {
 
 	@Test
 	public void contextLoads() throws Exception {
-		registerImpl.register("s", "s");
+
 	}
 
 }
