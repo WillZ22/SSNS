@@ -18,15 +18,15 @@ public interface StatusChange {
 	@WebMethod
 	String start(String sensorId) throws SensorNotExistException, Exception;
 	
-	/**
-	 * 传感器停止
-	 * @param sensorId changetime
-	 * @return sensorId
-	 * @throws SensorNotExistException 
-	 * @throws Exception 
-	 */
-	@WebMethod
-	String stop(String sensorId) throws SensorNotExistException, Exception;
+//	/**
+//	 * 传感器停止
+//	 * @param sensorId changetime
+//	 * @return sensorId
+//	 * @throws SensorNotExistException 
+//	 * @throws Exception 
+//	 */
+//	@WebMethod
+//	String stop(String sensorId) throws SensorNotExistException, Exception;
 	
 	/**
 	 * 传感器暂停

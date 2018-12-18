@@ -31,16 +31,16 @@ public class StatusChangeImpl implements StatusChange{
 		return sensorId;
 	}
 
-	@Override
-	@WebMethod
-	public String stop(String sensorId) throws Exception {
-		// TODO Auto-generated method stub
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		Date date = new Date();
-		String changeTime = sdf.format(date);
-		statusChangeService.statueChange("stop", sensorId, changeTime);
-		return sensorId;
-	}
+//	@Override
+//	@WebMethod
+//	public String stop(String sensorId) throws Exception {
+//		// TODO Auto-generated method stub
+//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//		Date date = new Date();
+//		String changeTime = sdf.format(date);
+//		statusChangeService.statueChange("stop", sensorId, changeTime);
+//		return sensorId;
+//	}
 
 	@Override
 	@WebMethod
