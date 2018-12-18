@@ -3,6 +3,7 @@ package cug.swt.ssns.Interface;
 import java.util.List;
 
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebService;
 
 import cug.swt.ssns.exception.ConsumerNotExistException;
@@ -26,9 +27,9 @@ public interface GetInfo {
 	 * @throws SensorNotExistException 
 	 */
 	@WebMethod
-	Sensor getSensorInfo(String sensorID) throws SensorNotExistException;
+	Sensor getSensorInfo(@WebParam(name = "sensorid")String sensorid) throws SensorNotExistException;
 	
 	@WebMethod
-	List<Sensor> getSubscribedSensor(String consumerPort) throws ConsumerNotExistException;
+	List<Sensor> getSubscribedSensor(@WebParam(name = "consumerPort")String consumerPort) throws ConsumerNotExistException;
 	
 }

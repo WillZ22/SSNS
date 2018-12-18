@@ -3,6 +3,7 @@ package cug.swt.ssns.Interface;
 import java.util.List;
 
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebService;
 
 import cug.swt.ssns.exception.ConsumerNotExistException;
@@ -20,7 +21,7 @@ public interface Subscribe {
 	 * @throws SensorNotExistException 
 	 */
 	@WebMethod
-	List<String> subscribe(List<String> sensorIds, String consumerPort) throws SensorNotExistException;
+	List<String> subscribe(@WebParam(name = "sensorid")List<String> sensorids, @WebParam(name = "consumerPort")String consumerPort) throws SensorNotExistException;
 	
 	/**
 	 * 取消订阅
@@ -30,7 +31,7 @@ public interface Subscribe {
 	 * @throws SensorNotExistException 
 	 */
 	@WebMethod
-	List<String> unsubscribe(List<String> sensorIds,  String consumerPort) throws SensorNotExistException, ConsumerNotExistException;
+	List<String> unsubscribe(@WebParam(name = "sensorid")List<String> sensorids,  @WebParam(name = "consumerPort")String consumerPort) throws SensorNotExistException, ConsumerNotExistException;
 	
 	/**
 	 * 获得订阅信息
@@ -38,6 +39,6 @@ public interface Subscribe {
 	 * @return {@link Consumer}
 	 */
 	@WebMethod
-	Consumer getConsumerInfo(String consumerPort);
+	Consumer getConsumerInfo(@WebParam(name = "consumerPort")String consumerPort);
 	
 }

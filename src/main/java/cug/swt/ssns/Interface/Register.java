@@ -1,6 +1,7 @@
 package cug.swt.ssns.Interface;
 
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebService;
 
 import org.springframework.stereotype.Component;
@@ -16,7 +17,7 @@ public interface Register {
 	 * @throws Exception 
 	 */
 	@WebMethod
-	String register(String sensorID, String sosAdress, String frequence) throws Exception;
+	String register(@WebParam(name = "sensorid")String sensorID, @WebParam(name = "sosAdress")String sosAdress, @WebParam(name = "frequence")String frequence) throws Exception;
 	
 	/**
 	 * 注销传感器
@@ -25,5 +26,5 @@ public interface Register {
 	 * @throws Exception 
 	 */
 	@WebMethod
-	String unregister(String sensorsID) throws Exception;
+	String unregister(@WebParam(name = "sensorid")String sensorsID) throws Exception;
 }
