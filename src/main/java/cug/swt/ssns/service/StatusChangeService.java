@@ -34,10 +34,11 @@ public class StatusChangeService {
 			
 			//通知用户的xml
 			Document doc = DocumentHelper.createDocument();
-			Element root = doc.addElement("sensor");
-			root.addElement("id").setText(sensor.getSensorid());
-			root.addElement("status").setText(sensor.getStatus() != null ? sensor.getStatus() : "");
-			root.addElement("changeTime").setText(sensor.getStatusChangeTime() != null ? sensor.getStatus() : "");
+			Element root = doc.addElement("StatusChangeNotification");
+			Element sensorElement = root.addElement("sensor");
+			sensorElement.addElement("id").setText(sensor.getSensorid());
+			sensorElement.addElement("status").setText(sensor.getStatus() != null ? sensor.getStatus() : "");
+			sensorElement.addElement("changeTime").setText(sensor.getStatusChangeTime() != null ? sensor.getStatus() : "");
 			String xmlStr = doc.asXML();
 			
 			

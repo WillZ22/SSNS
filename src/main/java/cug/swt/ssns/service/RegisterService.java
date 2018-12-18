@@ -79,7 +79,14 @@ public class RegisterService {
 			throw new SensorNotExistException(sensorid + "  is not exist");
 		} else {
 			Sensor sensor = sensorRepository.getSensorBysensorid(sensorid);
+			
+			Document doc = DocumentHelper.createDocument();
+			Element root = doc.addElement("UnregisterNotification");
+			root.addElement("id").setText(sensorid);
+			String xmlStr = doc.asXML();
+			
 			for(Consumer con:sensor.getConsumers()) {
+				Notify.notify(xmlStr, con.getConsumerPort());
 				con.getSubscribedSensor().remove(sensor);
 			}
 			sensorRepository.delete(sensor);

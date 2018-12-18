@@ -37,10 +37,11 @@ public class FrequenceChangeService {
 			
 			//通知用户的xml
 			Document doc = DocumentHelper.createDocument();
-			Element root = doc.addElement("sensor");
-			root.addElement("id").setText(sensor.getSensorid());
-			root.addElement("frequence").setText(sensor.getFrequence());
-			root.addElement("changeTime").setText(sensor.getFrequenceChangeTime() != null ? sensor.getFrequenceChangeTime() : "");
+			Element root = doc.addElement("FrequenceChangeNotification");
+			Element sensoreleElement= root.addElement("sensor");
+			sensoreleElement.addElement("id").setText(sensor.getSensorid());
+			sensoreleElement.addElement("frequence").setText(sensor.getFrequence());
+			sensoreleElement.addElement("changeTime").setText(sensor.getFrequenceChangeTime() != null ? sensor.getFrequenceChangeTime() : "");
 			String xmlStr = doc.asXML();
 			
 			
@@ -54,4 +55,5 @@ public class FrequenceChangeService {
 		}
 		
 	}
+
 }
